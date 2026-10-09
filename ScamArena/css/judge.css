@@ -1,0 +1,173 @@
+/* SCAM ARENA - Judge Mode Styles */
+
+.judge-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.judge-hero-card {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(168, 85, 247, 0.12));
+  border: 1px solid var(--cyber-amber);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 0 30px var(--cyber-amber-glow);
+}
+
+.judge-badge-pill {
+  background: var(--cyber-amber);
+  color: #070b14;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.08em;
+}
+
+.judge-title {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.judge-desc {
+  max-width: 640px;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Judge Active HUD */
+.judge-active-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--cyber-amber);
+  border-radius: var(--radius-lg);
+  padding: 16px 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.judge-timer-display {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--cyber-amber);
+}
+
+.judge-progress-dots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.judge-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--border-subtle);
+  background: transparent;
+  transition: all var(--transition-fast);
+}
+
+.judge-dot.active {
+  border-color: var(--cyber-amber);
+  background: var(--cyber-amber);
+  box-shadow: 0 0 10px var(--cyber-amber-glow);
+}
+
+.judge-dot.passed {
+  border-color: var(--cyber-emerald);
+  background: var(--cyber-emerald);
+}
+
+.judge-dot.failed {
+  border-color: var(--cyber-crimson);
+  background: var(--cyber-crimson);
+}
+
+/* Judge Final Scorecard */
+.judge-report-card {
+  background: var(--bg-surface);
+  border: 2px solid var(--cyber-cyan);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), var(--shadow-cyber);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.report-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.report-grade-badge {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cyber-cyan), var(--cyber-violet));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 900;
+  font-family: var(--font-heading);
+  color: #fff;
+  margin: 0 auto 12px;
+  box-shadow: 0 0 24px var(--cyber-cyan-glow);
+}
+
+.judge-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .judge-stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.judge-stat-card {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.judge-stat-num {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--cyber-cyan);
+}
+
+.judge-stat-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}

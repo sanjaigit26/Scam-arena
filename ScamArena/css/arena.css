@@ -1,0 +1,683 @@
+/* SCAM ARENA - Arena & Simulation Styles */
+
+/* --- Mission Stage Layout --- */
+.arena-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mission-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 18px 24px;
+}
+
+.mission-meta-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mission-number-tag {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--cyber-cyan);
+  letter-spacing: 0.1em;
+}
+
+.mission-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.mission-objective {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.mission-meta-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Pressure Timer */
+.arena-timer-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 51, 102, 0.12);
+  border: 1px solid rgba(255, 51, 102, 0.3);
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  color: var(--cyber-crimson);
+}
+
+.arena-timer-box.urgent {
+  animation: timerBlink 0.8s infinite alternate;
+}
+
+@keyframes timerBlink {
+  0% { box-shadow: 0 0 4px var(--cyber-crimson); border-color: var(--cyber-crimson); }
+  100% { box-shadow: 0 0 16px var(--cyber-crimson-glow); border-color: #ff3366; }
+}
+
+.timer-countdown {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+/* Arena Split Stage: Left is Simulated Interface, Right is Investigation HUD */
+.arena-stage-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .arena-stage-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Realistic Simulated Digital Interfaces --- */
+
+/* 1. Smartphone Frame (SMS / Smishing) */
+.device-frame-phone {
+  background: #000000;
+  border: 8px solid #1a2234;
+  border-radius: 36px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 229, 255, 0.15);
+  overflow: hidden;
+  max-width: 440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.phone-status-bar {
+  background: #090e18;
+  padding: 8px 18px 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-family: var(--font-mono);
+}
+
+.phone-notch {
+  width: 90px;
+  height: 16px;
+  background: #000;
+  border-radius: 0 0 10px 10px;
+}
+
+.phone-app-header {
+  background: #0d1527;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.phone-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.phone-contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-contact-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #f1f5f9;
+}
+
+.phone-contact-sub {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-family: var(--font-mono);
+}
+
+.phone-chat-screen {
+  background: #080c16;
+  min-height: 380px;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chat-date-pill {
+  align-self: center;
+  background: rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-family: var(--font-mono);
+}
+
+.chat-bubble {
+  max-width: 88%;
+  padding: 14px 16px;
+  border-radius: 18px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  position: relative;
+}
+
+.bubble-received {
+  align-self: flex-start;
+  background: #182238;
+  color: #f1f5f9;
+  border-bottom-left-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.bubble-text-link {
+  color: #38bdf8;
+  text-decoration: underline;
+  word-break: break-all;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+.bubble-timestamp {
+  font-size: 0.68rem;
+  color: #64748b;
+  text-align: right;
+  margin-top: 6px;
+  font-family: var(--font-mono);
+}
+
+/* 2. Desktop Email Client Frame */
+.device-frame-email {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.email-window-titlebar {
+  background: var(--bg-surface-elevated);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.window-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.window-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot-red { background: #ef4444; }
+.dot-yellow { background: #f59e0b; }
+.dot-green { background: #10b981; }
+
+.email-headers-panel {
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.email-header-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.email-header-label {
+  color: var(--text-dim);
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.email-header-val {
+  color: var(--text-main);
+  word-break: break-all;
+}
+
+.auth-badge-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.auth-chip {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.chip-pass {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--cyber-emerald);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.chip-fail {
+  background: rgba(255, 51, 102, 0.15);
+  color: var(--cyber-crimson);
+  border: 1px solid rgba(255, 51, 102, 0.3);
+}
+
+.email-body-content {
+  padding: 24px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+.email-cta-box {
+  margin: 20px 0;
+  padding: 16px;
+  background: rgba(0, 229, 255, 0.05);
+  border-left: 3px solid var(--cyber-cyan);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+/* 3. Scareware / Tech Support Alert Frame */
+.device-frame-scareware {
+  background: #180509;
+  border: 2px solid #ef4444;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 0 30px rgba(239, 68, 68, 0.35);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.scareware-banner {
+  background: #ef4444;
+  color: #fff;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  font-weight: 800;
+  text-align: center;
+  font-family: var(--font-heading);
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.scareware-phone {
+  background: #000;
+  border: 2px dashed #ef4444;
+  padding: 14px;
+  text-align: center;
+  margin: 16px 0;
+  border-radius: var(--radius-md);
+  color: #fca5a5;
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+/* 4. Payment App Frame */
+.device-frame-payment {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.payment-amount-hero {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.payment-amount-val {
+  font-size: 2.8rem;
+  font-weight: 900;
+  font-family: var(--font-heading);
+  color: var(--cyber-crimson);
+}
+
+.payment-direction-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  background: rgba(255, 51, 102, 0.15);
+  color: var(--cyber-crimson);
+  border: 1px solid rgba(255, 51, 102, 0.3);
+}
+
+/* --- Investigation Toolbar & Clues --- */
+.investigation-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.investigation-toolbar-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.clues-counter-tag {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--cyber-cyan);
+  background: rgba(0, 229, 255, 0.1);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+}
+
+.investigation-buttons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.investigate-btn {
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.investigate-btn:hover {
+  border-color: var(--cyber-cyan);
+  background: rgba(0, 229, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.investigate-btn.discovered {
+  border-color: var(--cyber-emerald);
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--cyber-emerald);
+}
+
+.clue-reveal-box {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: fadeIn 0.25s ease;
+}
+
+.clue-header-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clue-title-label {
+  font-weight: 800;
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  color: var(--cyber-cyan);
+}
+
+.clue-xp-tag {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--cyber-emerald);
+  font-weight: 700;
+}
+
+.clue-detail-text {
+  font-size: 0.88rem;
+  color: var(--text-main);
+  white-space: pre-line;
+}
+
+.ai-signal-badge {
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--cyber-cyan);
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  color: #38bdf8;
+  font-family: var(--font-mono);
+}
+
+/* Red Flags Hotspot Highlighting */
+.hotspot-mode-active .inspectable-flag {
+  position: relative;
+  background: rgba(255, 51, 102, 0.18) !important;
+  border: 1px dashed var(--cyber-crimson) !important;
+  border-radius: 4px;
+  cursor: pointer;
+  animation: pulseFlag 1.5s infinite;
+}
+
+@keyframes pulseFlag {
+  0% { box-shadow: 0 0 0 0 rgba(255, 51, 102, 0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(255, 51, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 51, 102, 0); }
+}
+
+/* --- Decision Dock --- */
+.decision-dock {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.decision-dock-title {
+  font-size: 0.9rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--text-dim);
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.decision-actions-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 640px) {
+  .decision-actions-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Consequence Simulation Overlay --- */
+.consequence-box {
+  background: #18080c;
+  border: 2px solid var(--cyber-crimson);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: 0 0 40px var(--cyber-crimson-glow);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 16px 0;
+  animation: modalScale 0.3s ease;
+}
+
+.consequence-title {
+  color: var(--cyber-crimson);
+  font-size: 1.4rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.simulation-step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+}
+
+.simulation-step-item {
+  display: flex;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: #fecdd3;
+}
+
+.sim-num {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  color: var(--cyber-crimson);
+}
+
+.risk-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.risk-impact-tag {
+  background: rgba(255, 51, 102, 0.2);
+  border: 1px solid rgba(255, 51, 102, 0.4);
+  color: #fda4af;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* --- AI Threat Analysis Dossier --- */
+.ai-analysis-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.analysis-header-grid {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .analysis-header-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.red-flags-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.red-flag-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  background: var(--bg-surface-elevated);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--cyber-crimson);
+}
+
+.flag-icon {
+  color: var(--cyber-crimson);
+  font-size: 1rem;
+}
+
+.analysis-why-box {
+  background: rgba(0, 229, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.why-heading {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--cyber-cyan);
+  margin-bottom: 6px;
+}
+
+.action-defense-box {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.action-heading {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--cyber-emerald);
+  margin-bottom: 6px;
+}

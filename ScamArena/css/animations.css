@@ -1,0 +1,103 @@
+/* SCAM ARENA - Cyber Animations & Motion Effects */
+
+/* Scanline Effect */
+.scanlines-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 3px, 6px 100%;
+  z-index: 99;
+  opacity: 0.35;
+}
+
+[data-theme="light"] .scanlines-overlay {
+  display: none;
+}
+
+/* Pulsing Cyber Radar */
+@keyframes cyberRadar {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; filter: drop-shadow(0 0 12px var(--cyber-cyan-glow)); }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.radar-pulse {
+  animation: cyberRadar 2.5s infinite ease-in-out;
+}
+
+/* Breach Glitch Effect */
+@keyframes breachShake {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-3px, 2px); }
+  40% { transform: translate(3px, -2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(2px, 3px); }
+  100% { transform: translate(0, 0); }
+}
+
+.breach-alert-active {
+  animation: breachShake 0.4s ease;
+}
+
+/* Shimmer Light Bar */
+@keyframes shimmerPass {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.shimmer-active {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  animation: shimmerPass 2s infinite;
+}
+
+/* Streak Ignition Flare */
+@keyframes streakFire {
+  0% { filter: drop-shadow(0 0 4px #ff3366); }
+  50% { filter: drop-shadow(0 0 16px #ff0055) hue-rotate(20deg); }
+  100% { filter: drop-shadow(0 0 4px #ff3366); }
+}
+
+.streak-active-glow {
+  animation: streakFire 1s infinite alternate;
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .scanlines-overlay {
+    display: none !important;
+  }
+}
